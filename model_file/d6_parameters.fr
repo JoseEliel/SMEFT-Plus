@@ -1,0 +1,190 @@
+(* *********************************** *)
+(* *****   Wilson Coefficients   ***** *)
+(* *********************************** *)
+Print["Getting parameters"]
+
+dim6pars = {
+    
+(* Class 2 *)
+csdH == {
+    ParameterType    -> External,
+    BlockName        -> SMEFT,
+    Value            -> 0,
+    InteractionOrder -> {{NP,1},{NPsdH,1},{QED,1}},
+    TeX              -> Subscript[c, OverTilde[d], H ]
+  },
+
+cHsd == {
+    ParameterType    -> External,
+    BlockName        -> SMEFT,
+    Value            -> 0,
+    InteractionOrder -> {{NP,1},{NPcHsd,1},{QED,1}},
+    TeX              -> Subscript[c, H, OverTilde[d]]
+  },
+
+(* Class 3 *)
+
+cHbox == {
+    ParameterType    -> External,
+    BlockName        -> SMEFT,
+    Value            -> 0,
+    InteractionOrder -> {{NP,1},{NPcHBox,1}},
+    TeX              -> Subscript[c, H, Box]
+  },
+
+cHDD == {
+    ParameterType    -> External,
+    BlockName        -> SMEFT,
+    Value            -> 0,
+    InteractionOrder -> {{NP,1},{NPcHDD,1}},
+    TeX              -> Subscript[c, H, DD]
+  },
+csdbox == {
+    ParameterType    -> External,
+    BlockName        -> SMEFT,
+    Value            -> 0,
+    InteractionOrder -> {{NP,1},{NPcsdbox,1}},
+    TeX              -> Subscript[c,OverTilde[d] \[EmptySquare]]
+  },
+csdDD == {
+    ParameterType    -> External,
+    BlockName        -> SMEFT,
+    Value            -> 0,
+    InteractionOrder -> {{NP,1},{NPcsdDD,1}},
+    TeX              -> Subscript[c,OverTilde[d] D]
+  },
+cHsdbox == {
+    ParameterType    -> External,
+    BlockName        -> SMEFT,
+    Value            -> 0,
+    InteractionOrder -> {{NP,1},{NPcHsdbox,1}},
+    TeX              -> Subscript[c,H OverTilde[d] \[EmptySquare]]
+  },
+cHsdDD == {
+    ParameterType    -> External,
+    BlockName        -> SMEFT,
+    Value            -> 0,
+    InteractionOrder -> {{NP,1},{NPcHsdDD,1}},
+    TeX              -> Subscript[c,H OverTilde[d] D]
+  },
+(* Class 4 *)
+
+cHG == {
+    ParameterType    -> External,
+    BlockName        -> SMEFT,
+    Value            -> 0,
+    InteractionOrder -> {{NP,1},{NPcHG,1}},
+    TeX              -> Subscript[c,HG]
+  },
+
+csdG == {
+    ParameterType    -> External,
+    BlockName        -> SMEFT,
+    Value            -> 0,
+    InteractionOrder -> {{NP,1},{NPcsdG,1}},
+    TeX              -> Subscript[c,OverTilde[d]G]
+  },
+
+(* Class 5 *)
+
+cdsdH1Re11 == {ParameterType -> External, Value -> 0, InteractionOrder -> {{NP,1},{NPcdsdH1,1}}, BlockName -> SMEFT},
+cdsdH1Re22 == {ParameterType -> External, Value -> 0, InteractionOrder -> {{NP,1},{NPcdsdH1,1}}, BlockName -> SMEFT},
+cdsdH1Re33 == {ParameterType -> External, Value -> 0, InteractionOrder -> {{NP,1},{NPcdsdH1,1}}, BlockName -> SMEFT},
+cdsdH1Re12 == {ParameterType -> External, Value -> 0, InteractionOrder -> {{NP,1},{NPcdsdH1,1}}, BlockName -> SMEFT},
+cdsdH1Re13 == {ParameterType -> External, Value -> 0, InteractionOrder -> {{NP,1},{NPcdsdH1,1}}, BlockName -> SMEFT},
+cdsdH1Re23 == {ParameterType -> External, Value -> 0, InteractionOrder -> {{NP,1},{NPcdsdH1,1}}, BlockName -> SMEFT},
+cdsdH1Re21 == {ParameterType -> External, Value -> 0, InteractionOrder -> {{NP,1},{NPcdsdH1,1}}, BlockName -> SMEFT},
+cdsdH1Re31 == {ParameterType -> External, Value -> 0, InteractionOrder -> {{NP,1},{NPcdsdH1,1}}, BlockName -> SMEFT},
+cdsdH1Re32 == {ParameterType -> External, Value -> 0, InteractionOrder -> {{NP,1},{NPcdsdH1,1}}, BlockName -> SMEFT},
+cdsdH1Im11  == {ParameterType -> External, Value -> 0, BlockName-> SMEFTcpv, InteractionOrder-> {{NP,1},{NPcpv,1},{NPcdsdH1,1}}},
+cdsdH1Im22  == {ParameterType -> External, Value -> 0, BlockName-> SMEFTcpv, InteractionOrder-> {{NP,1},{NPcpv,1},{NPcdsdH1,1}}},
+cdsdH1Im33  == {ParameterType -> External, Value -> 0, BlockName-> SMEFTcpv, InteractionOrder-> {{NP,1},{NPcpv,1},{NPcdsdH1,1}}},
+cdsdH1Im12  == {ParameterType -> External, Value -> 0, BlockName-> SMEFTcpv, InteractionOrder-> {{NP,1},{NPcpv,1},{NPcdsdH1,1}}},
+cdsdH1Im13  == {ParameterType -> External, Value -> 0, BlockName-> SMEFTcpv, InteractionOrder-> {{NP,1},{NPcpv,1},{NPcdsdH1,1}}},
+cdsdH1Im23  == {ParameterType -> External, Value -> 0, BlockName-> SMEFTcpv, InteractionOrder-> {{NP,1},{NPcpv,1},{NPcdsdH1,1}}},
+cdsdH1Im21  == {ParameterType -> External, Value -> 0, BlockName-> SMEFTcpv, InteractionOrder-> {{NP,1},{NPcpv,1},{NPcdsdH1,1}}},
+cdsdH1Im31  == {ParameterType -> External, Value -> 0, BlockName-> SMEFTcpv, InteractionOrder-> {{NP,1},{NPcpv,1},{NPcdsdH1,1}}},
+cdsdH1Im32  == {ParameterType -> External, Value -> 0, BlockName-> SMEFTcpv, InteractionOrder-> {{NP,1},{NPcpv,1},{NPcdsdH1,1}}},
+
+cuHRe11 == {ParameterType -> External, Value -> 0, InteractionOrder -> {{NP,1},{NPcuH,1}}, BlockName -> SMEFT},
+cuHRe22 == {ParameterType -> External, Value -> 0, InteractionOrder -> {{NP,1},{NPcuH,1}}, BlockName -> SMEFT},
+cuHRe33 == {ParameterType -> External, Value -> 0, InteractionOrder -> {{NP,1},{NPcuH,1}}, BlockName -> SMEFT},
+cuHRe12 == {ParameterType -> External, Value -> 0, InteractionOrder -> {{NP,1},{NPcuH,1}}, BlockName -> SMEFT},
+cuHRe13 == {ParameterType -> External, Value -> 0, InteractionOrder -> {{NP,1},{NPcuH,1}}, BlockName -> SMEFT},
+cuHRe23 == {ParameterType -> External, Value -> 0, InteractionOrder -> {{NP,1},{NPcuH,1}}, BlockName -> SMEFT},
+cuHRe21 == {ParameterType -> External, Value -> 0, InteractionOrder -> {{NP,1},{NPcuH,1}}, BlockName -> SMEFT},
+cuHRe31 == {ParameterType -> External, Value -> 0, InteractionOrder -> {{NP,1},{NPcuH,1}}, BlockName -> SMEFT},
+cuHRe32 == {ParameterType -> External, Value -> 0, InteractionOrder -> {{NP,1},{NPcuH,1}}, BlockName -> SMEFT},
+
+cuHIm11  == {ParameterType -> External, Value -> 0, BlockName-> SMEFTcpv, InteractionOrder-> {{NP,1},{NPcpv,1},{NPcuH,1}}},
+cuHIm22  == {ParameterType -> External, Value -> 0, BlockName-> SMEFTcpv, InteractionOrder-> {{NP,1},{NPcpv,1},{NPcuH,1}}},
+cuHIm33  == {ParameterType -> External, Value -> 0, BlockName-> SMEFTcpv, InteractionOrder-> {{NP,1},{NPcpv,1},{NPcuH,1}}},
+cuHIm12  == {ParameterType -> External, Value -> 0, BlockName-> SMEFTcpv, InteractionOrder-> {{NP,1},{NPcpv,1},{NPcuH,1}}},
+cuHIm13  == {ParameterType -> External, Value -> 0, BlockName-> SMEFTcpv, InteractionOrder-> {{NP,1},{NPcpv,1},{NPcuH,1}}},
+cuHIm23  == {ParameterType -> External, Value -> 0, BlockName-> SMEFTcpv, InteractionOrder-> {{NP,1},{NPcpv,1},{NPcuH,1}}},
+cuHIm21  == {ParameterType -> External, Value -> 0, BlockName-> SMEFTcpv, InteractionOrder-> {{NP,1},{NPcpv,1},{NPcuH,1}}},
+cuHIm31  == {ParameterType -> External, Value -> 0, BlockName-> SMEFTcpv, InteractionOrder-> {{NP,1},{NPcpv,1},{NPcuH,1}}},
+cuHIm32  == {ParameterType -> External, Value -> 0, BlockName-> SMEFTcpv, InteractionOrder-> {{NP,1},{NPcpv,1},{NPcuH,1}}},
+
+cdsdH1 == {
+ParameterType    -> Internal,
+Indices          -> {Index[Generation], Index[Generation]},
+Definitions      -> {cdsdH1[1,1]-> cdsdH1Re11 + I cdsdH1Im11, cdsdH1[2,2]-> cdsdH1Re22 + I cdsdH1Im22,
+                        cdsdH1[3,3]-> cdsdH1Re33 + I cdsdH1Im33, cdsdH1[1,2]-> cdsdH1Re12 + I cdsdH1Im12,
+                        cdsdH1[1,3]-> cdsdH1Re13 + I cdsdH1Im13, cdsdH1[2,3]-> cdsdH1Re23 + I cdsdH1Im23,
+                        cdsdH1[2,1]-> cdsdH1Re21 + I cdsdH1Im21, cdsdH1[3,1]-> cdsdH1Re31 + I cdsdH1Im31,
+                        cdsdH1[3,2]-> cdsdH1Re32 + I cdsdH1Im32},
+InteractionOrder -> {{NP,1},{NPcdsdH1,1}},
+ComplexParameter -> True,
+TeX              -> Subscript[Superscript[c, 1], OverTilde[d],dH]
+},
+
+cuH == {
+  ParameterType    -> Internal,
+  Indices          -> {Index[Generation], Index[Generation]},
+  Definitions      -> {cuH[1,1]-> cuHRe11 + I cuHIm11, cuH[2,2]-> cuHRe22 + I cuHIm22,
+                        cuH[3,3]-> cuHRe33 + I cuHIm33, cuH[1,2]-> cuHRe12 + I cuHIm12,
+                        cuH[1,3]-> cuHRe13 + I cuHIm13, cuH[2,3]-> cuHRe23 + I cuHIm23,
+                        cuH[2,1]-> cuHRe21 + I cuHIm21, cuH[3,1]-> cuHRe31 + I cuHIm31,
+                        cuH[3,2]-> cuHRe32 + I cuHIm32},
+  InteractionOrder -> {{NP,1},{NPcuH,1}},
+  ComplexParameter -> True,
+  TeX              -> Subscript[c,uH]
+},
+
+(* Class 6 *)
+
+cuGRe11 == {ParameterType -> External, Value -> 0, InteractionOrder -> {{NP,1},{NPcuG,1}}, BlockName -> SMEFT},
+cuGRe22 == {ParameterType -> External, Value -> 0, InteractionOrder -> {{NP,1},{NPcuG,1}}, BlockName -> SMEFT},
+cuGRe33 == {ParameterType -> External, Value -> 0, InteractionOrder -> {{NP,1},{NPcuG,1}}, BlockName -> SMEFT},
+cuGRe12 == {ParameterType -> External, Value -> 0, InteractionOrder -> {{NP,1},{NPcuG,1}}, BlockName -> SMEFT},
+cuGRe13 == {ParameterType -> External, Value -> 0, InteractionOrder -> {{NP,1},{NPcuG,1}}, BlockName -> SMEFT},
+cuGRe23 == {ParameterType -> External, Value -> 0, InteractionOrder -> {{NP,1},{NPcuG,1}}, BlockName -> SMEFT},
+cuGRe21 == {ParameterType -> External, Value -> 0, InteractionOrder -> {{NP,1},{NPcuG,1}}, BlockName -> SMEFT},
+cuGRe31 == {ParameterType -> External, Value -> 0, InteractionOrder -> {{NP,1},{NPcuG,1}}, BlockName -> SMEFT},
+cuGRe32 == {ParameterType -> External, Value -> 0, InteractionOrder -> {{NP,1},{NPcuG,1}}, BlockName -> SMEFT},
+
+cuGIm11  == {ParameterType -> External, Value -> 0, BlockName-> SMEFTcpv, InteractionOrder-> {{NP,1},{NPcpv,1},{NPcuG,1}}},
+cuGIm22  == {ParameterType -> External, Value -> 0, BlockName-> SMEFTcpv, InteractionOrder-> {{NP,1},{NPcpv,1},{NPcuG,1}}},
+cuGIm33  == {ParameterType -> External, Value -> 0, BlockName-> SMEFTcpv, InteractionOrder-> {{NP,1},{NPcpv,1},{NPcuG,1}}},
+cuGIm12  == {ParameterType -> External, Value -> 0, BlockName-> SMEFTcpv, InteractionOrder-> {{NP,1},{NPcpv,1},{NPcuG,1}}},
+cuGIm13  == {ParameterType -> External, Value -> 0, BlockName-> SMEFTcpv, InteractionOrder-> {{NP,1},{NPcpv,1},{NPcuG,1}}},
+cuGIm23  == {ParameterType -> External, Value -> 0, BlockName-> SMEFTcpv, InteractionOrder-> {{NP,1},{NPcpv,1},{NPcuG,1}}},
+cuGIm21  == {ParameterType -> External, Value -> 0, BlockName-> SMEFTcpv, InteractionOrder-> {{NP,1},{NPcpv,1},{NPcuG,1}}},
+cuGIm31  == {ParameterType -> External, Value -> 0, BlockName-> SMEFTcpv, InteractionOrder-> {{NP,1},{NPcpv,1},{NPcuG,1}}},
+cuGIm32  == {ParameterType -> External, Value -> 0, BlockName-> SMEFTcpv, InteractionOrder-> {{NP,1},{NPcpv,1},{NPcuG,1}}},
+
+cuG == {
+  ParameterType    -> Internal,
+  Indices          -> {Index[Generation], Index[Generation]},
+  Definitions      -> {cuG[1,1]-> cuGRe11 + I cuGIm11, cuG[2,2]-> cuGRe22 + I cuGIm22,
+                        cuG[3,3]-> cuGRe33 + I cuGIm33, cuG[1,2]-> cuGRe12 + I cuGIm12,
+                        cuG[1,3]-> cuGRe13 + I cuGIm13, cuG[2,3]-> cuGRe23 + I cuGIm23,
+                        cuG[2,1]-> cuGRe21 + I cuGIm21, cuG[3,1]-> cuGRe31 + I cuGIm31,
+                        cuG[3,2]-> cuGRe32 + I cuGIm32},
+  InteractionOrder -> {{NP,1},{NPcuG,1}},
+  ComplexParameter -> True,
+  TeX              -> Subscript[c,uG]
+}
+
+};

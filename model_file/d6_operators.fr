@@ -1,0 +1,73 @@
+
+operator[ind_, expr_]:= Block[ind,
+                          ExpandIndices[ expr,
+                          FlavorExpand->{SU2D,SU2W}]/.feynmangaugerules
+                        ]//OptimizeIndex;
+
+
+
+
+(* Class 2 *)
+OsdH:= operator[{ii,cc2,cc3},
+ 	 Phibar[ii] Phi[ii] sdbar[cc2] sd[cc2] sdbar[cc3] sd[cc3]
+	];
+
+OHsd:= operator[{cc,jj,kk},
+ 	 sdbar[cc] sd[cc] Phibar[jj] Phi[jj] Phibar[kk] Phi[kk]
+	];
+
+(* Class 3 *)
+
+OHbox:= operator[{ii,jj,mu},
+ 	 Phibar[ii]Phi[ii] del[del[Phibar[jj] Phi[jj],mu],mu]
+	];
+
+OHD:= operator[{ii,jj,mu},
+ 	 DC[Phibar[ii],mu] Phi[ii] Phibar[jj] DC[Phi[jj],mu]
+	];
+
+Osdbox:= operator[{cc1,cc2,mu},
+ 	 sdbar[cc1]sd[cc1] del[del[sdbar[cc2] sd[cc2],mu],mu]
+	];
+
+OsdD:= operator[{cc1,cc2,mu},
+ 	 DC[sdbar[cc1],mu] sd[cc1] sdbar[cc2] DC[sd[cc2],mu]
+	];
+
+OHsdbox:= operator[{cc,jj,mu},
+ 	 sdbar[cc]sd[cc] del[del[Phibar[jj] Phi[jj],mu],mu]
+	];
+
+OHsdD:= operator[{ii,cc,mu},
+ 	 DC[Phibar[ii],mu] Phi[ii] sdbar[cc] DC[sd[cc],mu]
+	];
+
+(* Class 4 *)
+
+OHG:= operator[{mu,nu,ii,aa},
+		Phibar[ii] Phi[ii] FS[G,mu,nu,aa] FS[G,mu,nu,aa]
+      ];
+
+OsdG:= operator[{mu,nu,cc,aa},
+		sdbar[cc] sd[cc] FS[G,mu,nu,aa] FS[G,mu,nu,aa]
+      ];
+
+(* Class 5 *)
+
+OdsdH1[ff1_,ff2_]:= operator[{sp1,ii,i,j,jp,k,kp,l,m,n},
+	 Eps[i,j,k] Eps[l,m,n] Eps[l,j,jp] Eps[m,k,kp] sd[i] sdbar[jp] QLbar[sp1,ii,ff1,kp].dR[sp1,ff2,n] Phi[ii]
+	];
+
+OuH[ff1_,ff2_]:= operator[{sp1,ii,jj,kk,cc},
+	 Phibar[kk] Phi[kk] QLbar[sp1,ii,ff1,cc].uR[sp1,ff2,cc] Eps[ii,jj] Phibar[jj]
+	];
+
+(* Class 6 *)
+
+OuG[ff1_,ff2_]:= operator[{sp1,sp2,mu,nu,ii,jj,aa,bb,cc},
+	QLbar[sp1,ii,ff1,aa].uR[sp2,ff2,bb] sigmaT[mu,nu,sp1,sp2] Phibar[jj] FS[G,mu,nu,cc]
+	T[cc,aa,bb] Eps[ii,jj]
+	];
+
+Print["Got Operators"]
+

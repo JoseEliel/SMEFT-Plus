@@ -1,0 +1,16 @@
+Get["d6_operators.fr"]
+
+L6c2:= csdH OsdH + cHsd OHsd ;
+
+L6c3:=  cHbox OHbox + cHDD OHD + csdDD OsdD + csdbox Osdbox + cHsdbox OHsdbox + cHsdDD OHsdD ;
+
+L6c4:=  cHG OHG + csdG OsdG;
+
+L6c50:=  Block[ {ff1,ff2},cdsdH1[ff1,ff2] OdsdH1[ff1,ff2] + cuH[ff1,ff2] OuH[ff1,ff2] ]//OptimizeIndex;
+
+L6c5:= L6c50 + HC[L6c50] 
+
+L6c60:= Block[{ff1,ff2},
+                ( cuG[ff1,ff2] OuG[ff1,ff2] ) ]//OptimizeIndex
+
+L6c6:= L6c60 + HC[L6c60]

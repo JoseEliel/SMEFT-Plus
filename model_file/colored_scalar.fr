@@ -1,0 +1,124 @@
+(***************************************************************************************************************)
+(******                       This is the FeynRules mod-file for the Colored Scalar + SM EFT mode         ******)
+(******                                                                                                   ******)
+(******     Authors: Eliel Camargo-Molina, 2023                                                           ******)
+(******                                                                                                   ******)
+(******     Model description:This model file is a modification of the SM-EFT model file.                 ******)
+(******      It includes a colored scalar                                                                 ******)
+(***************************************************************************************************************)
+
+M$ModelName = "Colored Scalar + SM EFT";
+
+M$Description =
+
+M$Information = {
+  Authors -> {"Eliel Camargo-molina"}, 
+  Version -> "1.0",
+  Date -> "09.11.2023"
+};
+
+FeynmanGauge =False;
+feynmangaugerules := If[Not[FeynmanGauge], {G0|GP|GPbar ->0}, {}];
+
+M$ClassesDescription = {
+
+(* Colored Scalar: physical fields *)
+	S[100] == {
+	    ClassName        -> sd,
+	    Mass             -> {msd, 0.0},
+	    Width            -> {Wsd, 0.0},
+	    SelfConjugate    -> False,
+	    PropagatorLabel  -> "sdhat",
+	    PropagatorType   -> ScalarDash,
+	    PropagatorArrow  -> None,
+	    QuantumNumbers   -> {Y-> -1/3},
+	    Indices          -> {Index[Colour]},
+	    ParticleName     -> "sd",
+	    AntiParticleName -> "sd~",
+	    FullName         -> "sd"
+	}
+
+};
+
+(* ************************** *)
+(* *****   Parameters   ***** *)
+(* ************************** *)
+
+M$Parameters = {
+lamsdh == {InteractionOrder -> {QCD, 2},
+    Value -> 1,
+    ParameterType -> Internal,
+    Description -> "Portal coupling with colored scalar"
+	},
+
+lamsd == {InteractionOrder -> {QCD, 2},
+    Value -> 1,
+    ParameterType -> Internal,
+    Description -> "Colored scalar quartic coupling"
+	},
+
+ysdR == {
+	ParameterType    -> Internal,
+	Indices          -> {Index[Generation], Index[Generation]},
+	Definitions      -> {ysdR[i_?NumericQ, j_?NumericQ] :> 0  /; (i =!= j)},
+	Value            -> {ysdR[1,1] ->0, ysdR[2,2] -> 0, ysdR[3,3] -> 0},
+	InteractionOrder -> {QED, 1},
+	ParameterName    -> {ysdR[1,1] -> ysdRdo, ysdR[2,2] -> ysdRs, ysdR[3,3] -> ysdRb},
+	ComplexParameter -> False,
+	TeX              -> Superscript[y, OverTilde[s]R],
+	Description      -> "Colored scalar Yukawa with right-handed quarks"
+	},
+
+ysdL == {
+      ParameterType    -> Internal,
+      Indices          -> {Index[Generation], Index[Generation]},
+	  Definitions      -> {ysdL[i_?NumericQ, j_?NumericQ] :> 0  /; (i =!= j)},
+	  Value            -> {ysdL[1,1] ->0, ysdL[2,2] -> 0, ysdL[3,3] -> 0},
+      InteractionOrder -> {QED, 1},
+      ParameterName    -> {ysdL[1,1] -> ysdLdo, ysdL[2,2] -> ysdLs, ysdL[3,3] -> ysdLb},
+      ComplexParameter -> False,
+      TeX              -> Superscript[y, OverTilde[s]L],
+      Description      -> "Colored scalar Yukawa with left-handed quarks"
+    }
+};
+
+Get["d6_parameters.fr"];
+
+M$Parameters = Append[M$Parameters, dim6pars]//Flatten
+
+
+(* ************************** *)
+(* *****   Vertices   ****** *)
+(* ************************** *)
+
+(* ************************** *)
+(* *****   Lagrangian   ***** *)
+(* ************************** *)
+
+LsdKin := DC[sdbar[k], mu]DC[sd[k],mu] - msd^2 sdbar[k] sd[k];
+
+LsdPot :=  lamsdh Phibar[ii] Phi[ii] sdbar[k]sd[k] + 
+            lamsd sdbar[k1]sd[k1]sdbar[k2]sd[k2]; 
+
+Lsd :=  Block[{ii,k, k1, k2, mu}, 
+ExpandIndices[LsdKin + LsdPot, FlavorExpand->{SU2D,SU2W}]/.feynmangaugerules
+];
+
+LYukawasd:= Block[{sp,ii,jj,cc,cc1,cc2,cc3,ff1,ff2,qq1,qq2,yuk},
+  yuk = ExpandIndices[
+
+  -ysdR[ff1,ff2] dR[sp, ff1, cc1].anti[CC[uR]][sp, ff2, cc2] sd[cc3] Eps[cc1,cc2,cc3] 
+  -ysdL[qq1,qq2] QL[sp,ii, qq1, cc1].anti[CC[QL]][sp,jj, qq2, cc2] sd[cc3] Eps[ii,jj] Eps[cc1,cc2,cc3] 
+
+, FlavorExpand -> {SU2D}];
+
+  yuk+HC[yuk]/.feynmangaugerules
+
+ ];
+
+sigmaT[mu_,nu_,sp1_,sp2_]:= I/2 Module[{sp3}, Ga[mu,sp1,sp3].Ga[nu,sp3,sp2]-Ga[nu,sp1,sp3].Ga[mu,sp3,sp2]];
+
+Print["Getting Operators"]
+Get["d6_lagrangian.fr"];
+
+L6:= L6c2 + L6c3 + L6c4 + L6c5 + L6c6;
