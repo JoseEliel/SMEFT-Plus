@@ -1,6 +1,6 @@
 Get["d6_operators.fr"]
 
-L6c2:= csdH OsdH + cHsd OHsd ;
+L6c2:= cH OH + csdH OsdH + cHsd OHsd ;
 
 L6c3:=  cHbox OHbox + cHDD OHD + csdDD OsdD + csdbox Osdbox + cHsdbox OHsdbox + cHsdDD OHsdD ;
 

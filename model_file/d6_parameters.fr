@@ -4,8 +4,23 @@
 Print["Getting parameters"]
 
 dim6pars = {
-    
+LambdaSMEFT == {
+    ParameterType    -> External,
+    BlockName        -> SMEFTcutoff,
+    Value            -> 10^(3),
+    InteractionOrder -> {QED, -1},
+    TeX              -> \[CapitalLambda]
+  },
 (* Class 2 *)
+
+cH == {
+    ParameterType    -> External,
+    BlockName        -> SMEFT,
+    Value            -> 0,
+    InteractionOrder -> {{NP,1},{NPcH,1},{QED,1}},
+    TeX              -> Subscript[c,H]
+  },
+
 csdH == {
     ParameterType    -> External,
     BlockName        -> SMEFT,
@@ -150,7 +165,21 @@ cuH == {
   InteractionOrder -> {{NP,1},{NPcuH,1}},
   ComplexParameter -> True,
   TeX              -> Subscript[c,uH]
-},
+}, 
+
+(*
+cuH == {
+  ParameterType    -> External,
+  Indices          -> {Index[Generation], Index[Generation]},
+  InteractionOrder -> {{NP,1},{NPcuH,1}},
+  ComplexParameter -> False,
+  Value            -> {cuH[1,1]-> 0, cuH[2,2]-> 0,
+                        cuH[3,3]-> 0, cuH[1,2]-> 0,
+                        cuH[1,3]-> 0, cuH[2,3]-> 0,
+                        cuH[2,1]-> 0, cuH[3,1]-> 0,
+                        cuH[3,2]-> 0},
+  TeX              -> Subscript[c,uH]
+}, *)
 
 (* Class 6 *)
 

@@ -8,6 +8,11 @@ operator[ind_, expr_]:= Block[ind,
 
 
 (* Class 2 *)
+
+OH:= operator[{ii,jj,kk},
+ 	 Phibar[ii] Phi[ii] Phibar[jj] Phi[jj] Phibar[kk] Phi[kk]
+	];
+
 OsdH:= operator[{ii,cc2,cc3},
  	 Phibar[ii] Phi[ii] sdbar[cc2] sd[cc2] sdbar[cc3] sd[cc3]
 	];
