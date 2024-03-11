@@ -122,3 +122,7 @@ Print["Getting Operators"]
 Get["d6_lagrangian.fr"];
 
 L6:= L6c2 + L6c3 + L6c4 + L6c5 + L6c6;
+
+L6noderivatives :=  L6c2 + L6c4 + L6c5 + L6c6;
+
+L6crosscheck := L6xcheck;

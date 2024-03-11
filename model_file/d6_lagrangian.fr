@@ -6,6 +6,8 @@ L6c3:=  cHbox OHbox + cHDD OHD + csdDD OsdD + csdbox Osdbox + cHsdbox OHsdbox + 
 
 L6c4:=  cHG OHG + csdG OsdG;
 
+L6xcheck = cHG OHG;
+
 L6c50:=  Block[ {ff1,ff2},cdsdH1[ff1,ff2] OdsdH1[ff1,ff2] + cuH[ff1,ff2] OuH[ff1,ff2] ]//OptimizeIndex;
 
 L6c5:= L6c50 + HC[L6c50] 

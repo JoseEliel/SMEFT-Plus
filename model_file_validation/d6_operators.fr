@@ -1,0 +1,18 @@
+
+operator[ind_, expr_]:= Block[ind,
+                          ExpandIndices[ expr,
+                          FlavorExpand->{SU2D,SU2W}]/.feynmangaugerules
+                        ]//OptimizeIndex;
+
+
+
+
+(* Class 4 *)
+
+OHG:= operator[{mu,nu,ii,aa},
+		Phibar[ii] Phi[ii] FS[G,mu,nu,aa] FS[G,mu,nu,aa]
+      ];
+
+
+Print["Got Operators"]
+

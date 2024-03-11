@@ -1,0 +1,4 @@
+Get["d6_operators.fr"]
+
+L6xcheck = cHG OHG;
+

@@ -1,0 +1,99 @@
+# This file was automatically created by FeynRules 2.3.49
+# Mathematica version: 13.0.1 for Mac OS X ARM (64-bit) (January 28, 2022)
+# Date: Wed 28 Feb 2024 16:31:57
+
+
+# 
+# This is the logfile for the model Colored Scalar + SM EFT
+
+# Authors: Eliel Camargo-molina
+# Model version: 1.0
+# Checking the Quantum numbers
+   * Electric charge defined.
+# Checking the Lagrangians
+   * All Lagrangians are ok.
+#
+# Particle definitions
+#
+
+   * No particles removed. All particles correspond to GenInt setup.
+
+# Automatically assigned PDG numbers
+   * Assigned PDG number 9000001 to particle ghA
+   * Assigned PDG number 9000002 to particle ghZ
+   * Assigned PDG number 9000003 to particle ghWp
+   * Assigned PDG number 9000004 to particle ghWm
+   * Assigned PDG number 9000005 to particle sd
+
+
+# Compulsory PDG codes:
+   * Class SM leptons complete.
+   * Class SM neutrinos complete.
+   * Class SM quarks complete.
+   * Class SM gauge bosons complete.
+#
+# Parameter definitions
+#
+
+   * All parameters are ok.
+
+
+# Vertices
+   * Calling FeynmanRules for 1 Lagrangians.
+   * Number of classes vertices: 113
+   * Number of flavored vertices: 113
+   * Saved vertices in InterfaceRun[ 1 ].
+   * Checked QNumber conservation.
+      - Quantum number GhostNumber conserved in all vertices.
+      - Quantum number LeptonNumber conserved in all vertices.
+      - Quantum number Q conserved in all vertices.
+      - Quantum number Y conserved in all vertices.
+   * particles.py written.
+   * parameters.py written.
+#
+# Vertex definitions
+#
+
+   * 101 vertices written.
+   * vertices.py written.
+#
+# Lorentz structure definitions
+#
+
+   * 47 lorentz structures written.
+   * lorentz.py written.
+#
+# Coupling definitions
+#
+
+   >>>> Non positive interaction order QED found for coupling GC_46.
+   >>>> Non positive interaction order QED found for coupling GC_47.
+   >>>> Non positive interaction order QED found for coupling GC_48.
+   >>>> Non positive interaction order QED found for coupling GC_52.
+   >>>> Non positive interaction order QED found for coupling GC_53.
+   * 72 couplings written.
+   * couplings.py written.
+#
+# Coupling order definitions
+#
+
+   * 0 couplings orders written.
+   * coupling_orders.py written.
+#
+# Decay definitions
+#
+
+   * 12 decays written.
+   * decay.py not written
+#
+# CTCoupling definitions
+#
+
+   * 314 CTcouplings written.
+   * CT_couplings.py written.
+#
+# CTVertex definitions
+#
+
+   * 116 CTvertices written.
+   * CT_vertices.py written.

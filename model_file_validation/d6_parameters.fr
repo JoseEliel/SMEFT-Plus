@@ -1,0 +1,17 @@
+(* *********************************** *)
+(* *****   Wilson Coefficients   ***** *)
+(* *********************************** *)
+Print["Getting parameters"]
+
+dim6pars = {
+(* Class 4 *)
+
+cHG == {
+    ParameterType    -> External,
+    BlockName        -> SMEFT,
+    Value            -> 0,
+    InteractionOrder -> {{NP,1},{NPcHG,1}},
+    TeX              -> Subscript[c,HG]
+  }
+
+};
