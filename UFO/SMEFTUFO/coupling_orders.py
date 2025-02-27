@@ -17,9 +17,21 @@ QED = CouplingOrder(name = 'QED',
 
 NP = CouplingOrder(name = 'NP',
                    expansion_order = 99,
-                   hierarchy = 1)
+                   hierarchy = 2)
 
 NPcHG = CouplingOrder(name = 'NPcHG',
                       expansion_order = 99,
-                      hierarchy = 1)
+                      hierarchy = 2)
+                      
+HTT = CouplingOrder(name = 'HTT',
+                    expansion_order = 99,
+                    hierarchy = 1)
+
+YUK = CouplingOrder(name = 'YUK',
+                    expansion_order = 99,
+                    hierarchy = 3)
+                    
+HHH = CouplingOrder(name = 'HHH',
+                    expansion_order = 99,
+                    hierarchy = 2)
 

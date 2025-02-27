@@ -51,7 +51,7 @@ R2GC_109_10 = Coupling(name = 'R2GC_109_10',
 
 R2GC_110_11 = Coupling(name = 'R2GC_110_11',
                        value = '-0.041666666666666664*(complex(0,1)*G**2*lamsdh*vev)/cmath.pi**2',
-                       order = {'QCD':2})
+                       order = {'QCD':2,'NP':1})
 
 R2GC_113_12 = Coupling(name = 'R2GC_113_12',
                        value = '-0.1111111111111111*(ee*complex(0,1)*G**2)/cmath.pi**2',
@@ -339,7 +339,7 @@ R2GC_82_82 = Coupling(name = 'R2GC_82_82',
 
 R2GC_82_83 = Coupling(name = 'R2GC_82_83',
                       value = '-0.125*(complex(0,1)*G**2*MT*yt)/(cmath.pi**2*cmath.sqrt(2))',
-                      order = {'QCD':2,'QED':1})
+                      order = {'QCD':2,'HTT':1})
 
 R2GC_82_84 = Coupling(name = 'R2GC_82_84',
                       value = '-0.125*(complex(0,1)*G**2*MU*yup)/(cmath.pi**2*cmath.sqrt(2))',
@@ -363,7 +363,7 @@ R2GC_83_88 = Coupling(name = 'R2GC_83_88',
 
 R2GC_83_89 = Coupling(name = 'R2GC_83_89',
                       value = '-0.0625*(complex(0,1)*G**2*yt**2)/cmath.pi**2',
-                      order = {'QCD':2,'QED':2})
+                      order = {'QCD':2,'HTT':2})
 
 R2GC_83_90 = Coupling(name = 'R2GC_83_90',
                       value = '-0.0625*(complex(0,1)*G**2*yup**2)/cmath.pi**2',
